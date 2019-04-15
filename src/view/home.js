@@ -1,13 +1,19 @@
 import React from "react";
-import { Link, Route,Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import Product from "./product";
-import { Button, Nav, Container, Row, Col } from "react-bootstrap";
+import { Button, Nav, Container, Row, Col, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import About from './about'
+import About from "./about";
+import menuList from "./../resource/menuConfig.js"
+import Content from './auth/content'
+import Count from '../components/laoma/count'
+import Userlist from '../components/laoma/userlist'
 export default class Home extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      menuList: menuList
+    };
   }
   componentDidMount() {
     this.setState();
@@ -48,21 +54,33 @@ export default class Home extends React.Component {
         </Nav>
 
         <Row>
-          <Col md={3}>
-            <Nav defaultActiveKey="" className="flex-column">
-              <Nav.Link href="">Active</Nav.Link>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-              <Nav.Link eventKey="link-2">Link</Nav.Link>
-              <Nav.Link eventKey="disabled" disabled>
-                Disabled
-              </Nav.Link>
+          <Col xs={3}>
+            <Nav
+              variant="pills"
+              activeKey="1"
+              className="flex-column"
+            >
+              <Nav.Item>
+              {
+                this.state.menuList.map((item,key)=>{
+                  return (
+                    <LinkContainer key={item.key} to={`${match.path}${item.key}`}>
+                      <Nav.Link>{item.title}</Nav.Link>
+                    </LinkContainer>
+                  )
+                })
+              }
+              </Nav.Item>
             </Nav>
           </Col>
-          <Col md={9}>
-              <Switch>
-                <Route path={`${match.path}/about`} component={About}></Route>
-                <Route path={`${match.path}/product`} component={Product}></Route>
-              </Switch>
+          <Col xs={9}>
+            <Switch>
+              <Route path={`${match.path}/about`} component={About} />
+              <Route path={`${match.path}/product`} component={Product} />
+              <Route path={`${match.path}/content`} component={Content}></Route>
+              <Route path={`${match.path}/rich`} component={Count}></Route>
+              <Route path={`${match.path}/userlist`} component={Userlist}></Route>
+            </Switch>
           </Col>
         </Row>
 
