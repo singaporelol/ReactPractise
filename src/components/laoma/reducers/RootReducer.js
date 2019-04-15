@@ -4,5 +4,5 @@ import {combineReducers} from 'redux'
 
 export const rootReducer=combineReducers({
   NumReducer,
-  UserlistReducer
+  UserList:UserlistReducer
 })
