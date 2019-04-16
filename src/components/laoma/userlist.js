@@ -9,6 +9,10 @@ export default class Userlist extends React.Component {
     this.state={
       userlist:store.getState().UserList,
     }
+    store.subscribe(() => {
+      console.log(store.getState().UserList);
+      this.setState({userlist:store.getState().UserList})
+    })
   }
   componentDidMount(){
     //http://yapi.demo.qunar.com/mock/7378/api/userlist
@@ -35,15 +39,16 @@ export default class Userlist extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {/* {this.state.userlist.map((item,key)=>{
-            <tr key={item.Id}>
-            <td>{item.Id}</td>
-            <td>{item.UserName}</td>
-            <td>{item.Address}</td>
-            <td>{item.Phone}</td>
-            <td>{item.Remark}</td>
-          </tr>
-          })} */}
+          {
+            this.state.userlist.map((item,key) => 
+              <tr key={item.Id}>
+                <td>{item.Id}</td>
+                <td>{item.UserName}</td>
+                <td>{item.Address}</td>
+                <td>{item.Phone}</td>
+                <td>{item.Remark}</td>
+              </tr>
+          )}
         </tbody>
       </Table>
     
