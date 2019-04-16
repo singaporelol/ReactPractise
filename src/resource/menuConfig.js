@@ -13,8 +13,8 @@ const menuList = [
         key:'/rich'
     },
     {
-        title:'城市管理',
-        key:'/city'
+        title:'react-redux计数器',
+        key:'/newcount'
     },
 
 
