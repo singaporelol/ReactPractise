@@ -18,5 +18,11 @@ export const UserlistAction={
       type: UserlistType.ADD_USER,
       payload
     });
+  },
+  deleteUserAction(payload){
+    return({
+      type:UserlistType.DELETE_USER,
+      payload
+    })
   }
 }
