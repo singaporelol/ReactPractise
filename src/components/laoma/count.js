@@ -5,7 +5,7 @@ import {Button} from 'react-bootstrap'
 import store from './store'
 import {ActionCreators} from './actions/NumAction'
 
-console.log(store.getState())
+
 
 export default class Count extends React.Component {
   addNum=()=>{

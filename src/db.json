@@ -1,14 +1,6 @@
 {
   "userlist": [
     {
-      "id": "100001",
-      "UserName": "xueqian",
-      "Address": "石嘴山市",
-      "Phone": "18979259415",
-      "Del": true,
-      "Remark": "称大色"
-    },
-    {
       "id": "100002",
       "UserName": "崔平",
       "Address": "通化市",
@@ -72,6 +64,5 @@
       "Del": true,
       "Remark": "学型格"
     }
-   
   ]
 }
