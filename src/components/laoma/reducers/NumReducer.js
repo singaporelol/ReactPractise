@@ -1,4 +1,3 @@
-import {createStore} from 'redux'
 import {ActionType} from '../actions/NumAction'
 
 export const NumReducer = (state = 0, action) => {
