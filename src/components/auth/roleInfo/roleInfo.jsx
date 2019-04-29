@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Table, Button, Icon, Modal, Input, message } from "antd";
+import { Table, Button, Icon, Modal, Input, message,Divider } from "antd";
 import Addroleinfo from "./addroleinfo";
 const confirm=Modal.confirm;
 
@@ -12,7 +12,8 @@ export default class RoleInfo extends React.Component {
       IsAddRoleModalVisible: false,
       IsEditRoleMoalVisible: false,
       RoleInfo: {},
-      test:1
+      selectedRowKeys:[],
+      hasSelected:false,
     };
   }
   componentDidMount() {
@@ -85,9 +86,15 @@ export default class RoleInfo extends React.Component {
   };
   setTitle = () => {
     return (
-      <Button onClick={() => this.handlerShowAddRoleModal(true)} type="primary">
-        添加新角色
-      </Button>
+      <div>
+        <Button onClick={() => this.handlerShowAddRoleModal(true)} type="primary">
+          添加新角色
+        </Button>
+        <Divider type="vertical"></Divider>
+        <Button disabled={!this.state.hasSelected} type="danger" icon="delete" onClick={() => this.handlerDeleteRange()}>
+          删除
+        </Button>
+      </div>
     );
   };
   handleCancel = () => {
@@ -130,13 +137,41 @@ export default class RoleInfo extends React.Component {
           res.data.code===1 && message.success('删除成功')
           this.handleGetRoleList();
         }).catch(err=>console.log(err))
+        // this.handleGetRoleList();
+      },
+      onCancel(){}
+    })
+  }
+  handlerDeleteRange=()=>{
+    confirm({
+      title:"确定要删除所选中的用户权限吗？",
+      onOk:()=>{
+        axios.delete('/api/deleteRoles',{
+          params:{
+            ids:JSON.stringify(this.state.selectedRowKeys)
+          }
+        }).then(res=>{
+          res.data.code===1 && message.success('删除成功')
+          this.setState({
+            selectedRowKeys:[],
+            hasSelected:false
+          })
+          this.handleGetRoleList();
+        }).catch(err=>console.log(err))
         this.handleGetRoleList();
       },
       onCancel(){}
     })
   }
+  rowSelectOnchange=(selectedRowKeys,selectedRows)=>{
+    const hasSelected=selectedRowKeys.length>0;
+    this.setState({
+      hasSelected,
+      selectedRowKeys:[...selectedRowKeys]
+    })
+  }
   render() {
-    console.log(this.state.RoleInfo);
+    // console.log(this.state.selectedRowKeys);
     return (
       <div>
         {/* 使用了把Modal组件定义到了Addroleinfo组件内部的方法。
@@ -165,7 +200,9 @@ export default class RoleInfo extends React.Component {
           title={() => this.setTitle()}
           rowKey="Id"
           rowSelection={{
-            type: "checkbox"
+            type: "checkbox",
+            selectedRowKeys:this.state.selectedRowKeys,
+            onChange: this.rowSelectOnchange
           }}
         />
       </div>
