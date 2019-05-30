@@ -10,7 +10,7 @@ export default class RoleInfo extends React.Component {
     this.state = {
       RoleName: "",
       IsAddRoleModalVisible: false,
-      IsEditRoleMoalVisible: false,
+      IsEditRoleModalVisible: false,
       RoleInfo: {},
       selectedRowKeys:[],
       hasSelected:false,
@@ -40,6 +40,7 @@ export default class RoleInfo extends React.Component {
             {
               title: "编辑",
               render: record => {
+                console.log(record)
                 return (
                   <div>
                     <Icon
@@ -72,7 +73,7 @@ export default class RoleInfo extends React.Component {
     console.log(record);
     this.setState({
       RoleInfo: { ...record },
-      IsEditRoleMoalVisible: true
+      IsEditRoleModalVisible: true
     });
   };
   handlerShowAddRoleModal = show => {
@@ -99,7 +100,7 @@ export default class RoleInfo extends React.Component {
   };
   handleCancel = () => {
     this.setState({
-      IsEditRoleMoalVisible: false
+      IsEditRoleModalVisible: false
     });
   };
   handleEditOk=()=>{
@@ -184,7 +185,7 @@ export default class RoleInfo extends React.Component {
         {/* 编辑用户模态框 */}
         <Modal
           title="编辑角色名称"
-          visible={this.state.IsEditRoleMoalVisible}
+          visible={this.state.IsEditRoleModalVisible}
           onOk={this.handleEditOk}
           onCancel={this.handleCancel}
         >
