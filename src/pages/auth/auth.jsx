@@ -30,22 +30,21 @@ export default class Auth extends React.Component {
       if(item.ChildMenu.length>0){
        return (<SubMenu
         key={item.Id}
-        title={<span>{item.ActionName}</span>}
+        title={<span>{item.Title}</span>}
       >
         {this.GenerateUserMenu(item.ChildMenu)}
       </SubMenu>)
       }else{
        return (<Menu.Item key={item.Id}>
-            <NavLink to={`${this.props.match.path}${item.Url}`} style={{textDecoration:"none"}}>{item.ActionName}</NavLink>
+            <NavLink to={`${this.props.match.path}${item.Url}`} style={{textDecoration:"none"}}>{item.Title}</NavLink>
         </Menu.Item>)
       }
     })
   }
   
   render() {
-    console.log(this.state.UserMenu)
+    console.log((this.state.UserMenu))
     return (
-      
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
           collapsible
