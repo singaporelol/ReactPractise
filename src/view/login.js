@@ -17,7 +17,9 @@ export default class Login extends Component {
           JSON.stringify(result.data.userinfo)
         );
         localStorage.removeItem("USER_MENU");
-        localStorage.setItem("USER_MENU", result.data.userMenu);
+        localStorage.setItem("USER_MENU",JSON.stringify(result.data.userMenu));
+        localStorage.removeItem("USER_ACTIONMODULE");
+        localStorage.setItem("USER_ACTIONMODULE",JSON.stringify(result.data.userActionModule));
         console.log(this.props);
         let lastLocation = JSON.parse(sessionStorage.getItem("APP_LAST_URL"));
         if (lastLocation) {
