@@ -20,6 +20,10 @@ const menuList = [
         title:'父子组件传值',
         key:'/parent'
     },
+    {
+        title:'context demo',
+        key:'/context'
+    },
 
 
 ];
