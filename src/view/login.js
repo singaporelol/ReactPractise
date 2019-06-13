@@ -16,10 +16,12 @@ export default class Login extends Component {
           "APP_LOGIN_USER",
           JSON.stringify(result.data.userinfo)
         );
-        localStorage.removeItem("USER_MENU");
-        localStorage.setItem("USER_MENU",result.data.userMenu);
-        localStorage.removeItem("USER_ACTIONMODULE");
-        localStorage.setItem("USER_ACTIONMODULE",result.data.userActionModule);
+        // localStorage.removeItem("USER_MENU");
+        // localStorage.setItem("USER_MENU",result.data.userMenu);
+        // localStorage.removeItem("USER_ACTIONMODULE");
+        // localStorage.setItem("USER_ACTIONMODULE",result.data.userActionModule));
+        this.props.getUserAllAction(JSON.parse(result.data.userAllAction))
+
         console.log(this.props);
         let lastLocation = JSON.parse(sessionStorage.getItem("APP_LAST_URL"));
         if (lastLocation) {

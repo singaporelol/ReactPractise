@@ -5,6 +5,7 @@ import UserRole from '../../components/auth/roleInfo/userRole'
 import Action from '../../components/auth/actionInfo/action'
 import MenuInfo from '../../components/auth/menuInfo/menuInfo'
 import {Route,NavLink,Redirect,Switch} from'react-router-dom'
+import {Consumer} from '../../../src/App'
 import {
   Layout, Menu, Breadcrumb
 } from 'antd';
@@ -13,11 +14,12 @@ const {
 } = Layout;
 const SubMenu = Menu.SubMenu;
 export default class Auth extends React.Component {
-  constructor() {
-
-    super()
+  constructor(props, context) {
+    console.log(context);
+    super(props)
     this.state = {
-        UserMenu:JSON.parse(localStorage.getItem('USER_MENU'))
+        // UserMenu:JSON.parse(localStorage.getItem('USER_MENU'))
+        // UserMenu:context.MenuList
     }
     
   }
@@ -43,31 +45,34 @@ export default class Auth extends React.Component {
   }
   
   render() {
-    console.log((this.state.UserMenu))
-    return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider
-          collapsible
-          // collapsed={this.state.collapsed}
-          // onCollapse={this.onCollapse}
-          style={{minHeight:'100vh'}}
-        >
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            {/* <Menu.Item key="1">
-              <NavLink to={`${this.props.match.path}userInfo`} style={{textDecoration:"none"}}>用户管理</NavLink>
-            </Menu.Item>
-            <Menu.Item key="2">
-            <NavLink to={`${this.props.match.path}role`} style={{textDecoration:"none"}}>角色管理</NavLink>
-            </Menu.Item>
-            <Menu.Item key="3">
-            <NavLink to={`${this.props.match.path}action`} style={{textDecoration:"none"}} >权限管理</NavLink>
-            </Menu.Item> */}
-            {/* 动态加载菜单 */}
-            {this.GenerateUserMenu(this.state.UserMenu)}
-          </Menu>
-        </Sider>
-        <Layout>
+    // console.log((this.state.UserMenu))
+      return <Consumer>
+        {context=>{
+          console.log(context);
+         return (<Layout style={{ minHeight: '100vh' }}>
+          <Sider
+            collapsible
+            // collapsed={this.state.collapsed}
+            // onCollapse={this.onCollapse}
+            style={{minHeight:'100vh'}}
+          >
+            <div className="logo" />
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+              {/* <Menu.Item key="1">
+                <NavLink to={`${this.props.match.path}userInfo`} style={{textDecoration:"none"}}>用户管理</NavLink>
+              </Menu.Item>
+              <Menu.Item key="2">
+              <NavLink to={`${this.props.match.path}role`} style={{textDecoration:"none"}}>角色管理</NavLink>
+              </Menu.Item>
+              <Menu.Item key="3">
+              <NavLink to={`${this.props.match.path}action`} style={{textDecoration:"none"}} >权限管理</NavLink>
+              </Menu.Item> */}
+              {/* 动态加载菜单 */}
+              {/* {this.GenerateUserMenu(this.state.UserMenu)} */}
+              {this.GenerateUserMenu(context.MenuList)}
+            </Menu>
+          </Sider>
+          <Layout>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -88,7 +93,9 @@ export default class Auth extends React.Component {
             Authentication System {new Date().getFullYear()} Created by Xueqian
           </Footer>
         </Layout>
-      </Layout>
-    );
+        </Layout>
+         )}}
+      </Consumer>
+    
   }
 }

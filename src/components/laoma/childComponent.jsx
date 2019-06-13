@@ -4,7 +4,7 @@ export default class ChildComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      visible:this.props.visible
+      visible:this.props.visible,
     }
   }
   static getDerivedStateFromProps(nextPros,preState){

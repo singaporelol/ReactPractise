@@ -16,6 +16,10 @@ const menuList = [
         title:'react-redux计数器',
         key:'/newcount'
     },
+    {
+        title:'父子组件传值',
+        key:'/parent'
+    },
 
 
 ];

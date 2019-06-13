@@ -16,7 +16,6 @@ export default class Count extends React.Component {
     this.setState({
       Num,
       age,
-      visible:true
     })
 
   }
@@ -44,7 +43,7 @@ export default class Count extends React.Component {
       <h2>我是Count组件计数器</h2>
       <div>{this.state.age}</div>
       <div>{this.state.visible===true?1:0}</div>
-      <ChildComponent {...this.state} resetVisible={this.resetVisible}></ChildComponent>
+      <ChildComponent {...this.state} resetVisible={this.resetVisible} getChildList={this.getChildList}></ChildComponent>
       <Button onClick={()=>this.addNum()}>+1</Button> &nbsp;
       <Button onClick={()=>this.minusNum()}>-1</Button>
     </div>)
