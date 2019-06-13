@@ -9,6 +9,7 @@ import menuList from "./../resource/menuConfig.js";
 import Content from "./auth/content";
 import Count from "../components/laoma/count";
 import Userlist from "../components/laoma/userlist";
+import Context from "../components/laoma/context";
 import NewCount from "../components/laoma/react-redux/NewCount";
 import Auth from "../pages/auth/auth"
 
@@ -86,6 +87,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/product`} component={Product} />
                     <Route path={`${match.path}/content`} component={Content} />
                     <Route path={`${match.path}/rich`} component={Count} />
+                    <Route path={`${match.path}/context`} component={Context} />
                     <Route
                       path={`${match.path}/newcount`}
                       component={NewCount}

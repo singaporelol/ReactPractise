@@ -16,6 +16,10 @@ const menuList = [
         title:'react-redux计数器',
         key:'/newcount'
     },
+    {
+        title:'context demo',
+        key:'/context'
+    },
 
 
 ];

@@ -24,7 +24,9 @@ export default class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact render={()=> <Redirect to="/app"></Redirect>}></Route>
-            <Route path="/login" component={Login}></Route>
+            <Route path="/login" component={(props)=>{
+              return <Login {...props}></Login>
+            }}></Route>
             <Route path="/app" render={(props)=>{
               //校验用户是否登录：如果登入进到页面，还没有登录，返回登录页面
               if(this.checkUserState()){
