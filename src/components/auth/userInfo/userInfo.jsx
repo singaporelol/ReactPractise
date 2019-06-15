@@ -32,10 +32,6 @@ export default class UserInfo extends React.Component {
           dataIndex:"UserName",
           key:"UserName"
         },{
-          title:"角色名称",
-          dataIndex:"RoleName",
-          key:"RoleName"
-        },{
           title:"编辑",
           render:record=>{
             return (<div style={{fontSize:"25px",cursor:"pointer"}}>

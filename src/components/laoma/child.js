@@ -1,5 +1,5 @@
 import React from 'react' 
-import {Button} from 'antd'
+import {Button, message} from 'antd'
 export default class Child extends React.Component {
   constructor(props) {
 
@@ -10,6 +10,9 @@ export default class Child extends React.Component {
   }
   PassToParent=()=>{
     this.props.getChild(this.state.list);
+  };
+  getAlert=()=>{
+    message.success("调用了子类的方法");
   }
   render() {
     return (<div>
@@ -18,3 +21,4 @@ export default class Child extends React.Component {
     </div>)
   }
 }
+export const getAlert=Child.getAlert;
