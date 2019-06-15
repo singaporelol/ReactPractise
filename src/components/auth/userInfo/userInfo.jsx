@@ -7,10 +7,10 @@ import EditModal from './editModal';
 
 export default class UserInfo extends React.Component {
   constructor() {
-
     super()
     this.state = {
       editVisible:false,
+      addVisible:false
     }
   }
   componentDidMount(){
@@ -51,13 +51,32 @@ export default class UserInfo extends React.Component {
       console.log(err)
     })
   }
+  addUser=()=>{
+    this.setState({
+      addVisible:true
+    })
+  }
+  handlerAddOk=()=>{
+
+  }
   setTitle=()=>{
-    return <Button type="primary">新增</Button>
+    return <Button type="primary" onClick={()=>{this.addUser()}}>新增</Button>
    }
   render() {
     
     return (
     <div>
+      {/* 添加用户 */}
+      <Modal
+        title="新增"
+        visible={this.state.addVisible}
+        onOk={this.handlerAddOk}
+        onCancel={()=>this.setState({
+          addVisible:false
+        })}
+      >
+      </Modal>
+      {/* 修改 */}
       <Modal
         title="修改"
         visible={this.state.editVisible}
