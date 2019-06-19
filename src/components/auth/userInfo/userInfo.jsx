@@ -4,7 +4,6 @@ import {
    Table,Button, Divider,Icon,Modal
 } from 'antd';
 import EditModal from './editModal';
-
 export default class UserInfo extends React.Component {
   constructor() {
     super()
@@ -86,6 +85,7 @@ export default class UserInfo extends React.Component {
         })}
       >
        <EditModal {...this.state}></EditModal>
+       {/* <HorizontalLoginForm></HorizontalLoginForm> */}
       </Modal>
       <Table 
         dataSource={this.state.dataSource} 
