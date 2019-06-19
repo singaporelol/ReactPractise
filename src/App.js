@@ -5,17 +5,19 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom'
-import Login from './view/login';
+import Login,{loginClick} from './view/login';
 import Empty from './view/empty';
 import Home from './view/home';
 import 'bootstrap/dist/css/bootstrap.css';
+import axios from 'axios'
 export const {Provider, Consumer} = React.createContext()
 
 export default class App extends Component {
   constructor(){
     super()
+    
     this.state={
-      userAllAction:{}
+      userAllAction:null
     }
   }
   checkUserState=()=>{
@@ -44,7 +46,18 @@ export default class App extends Component {
             <Route path="/app" render={(props)=>{
               //校验用户是否登录：如果登入进到页面，还没有登录，返回登录页面
               if(this.checkUserState()){
-                return <Provider value={this.state.userAllAction}><Home {...props}></Home></Provider>
+                //  debugger;
+                if(this.state.userAllAction){
+                  return <Provider value={this.state.userAllAction}><Home {...props}/></Provider>
+                }
+                 axios.get("/api/GetUserAuth", {
+                  params: {
+                    name: "admin",
+                    password: "123"
+                  }
+                }).then(result=>{
+                  this.setState({userAllAction: JSON.parse(result.data.userAllAction)})
+                });
               }else{
                 sessionStorage.setItem('APP_LAST_URL',JSON.stringify(props.location))
                 return <Redirect to="/login" ></Redirect>

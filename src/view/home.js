@@ -11,7 +11,8 @@ import Count from "../components/laoma/count";
 import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
-import InvokeChild from "../components/laoma/invokechild";
+import ParentCallChildMethod from "../components/laoma/parentcallchildmethod";
+
 import NewCount from "../components/laoma/react-redux/NewCount";
 import Auth from "../pages/auth/auth"
 
@@ -66,7 +67,7 @@ export default class Home extends React.Component {
             render={props => {
               console.log(props);
              return <Row>
-                <Col xs={3}>
+                <Col xs={3} style={{Width:"200px", paddingLeft:"60px", maxWidth:"300px"}}>
                   <Nav variant="pills" activeKey="1" className="flex-column">
                     <Nav.Item>
                       {this.state.menuList.map((item, key) => {
@@ -80,7 +81,7 @@ export default class Home extends React.Component {
                         );
                       })}
                     </Nav.Item>
-                    <Button type="primary" onClick={() => this.logOut()}>登出</Button>
+                    <Button type="primary" onClick={() => this.logOut()} style={{marginTop:"20px"}}>登出</Button>
                   </Nav>
                 </Col>
                 <Col xs={9}>
@@ -91,7 +92,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/rich`} component={Count} />
                     <Route path={`${match.path}/parent`} component={Parent} />
                     <Route path={`${match.path}/context`} component={Context} />
-                    <Route path={`${match.path}/invokechild`} component={InvokeChild} />
+                    <Route path={`${match.path}/parentcallchildmethod`} component={ParentCallChildMethod} />
                     <Route
                       path={`${match.path}/newcount`}
                       component={NewCount}
@@ -102,7 +103,6 @@ export default class Home extends React.Component {
                     />
                   </Switch>
                 </Col>
-                
               </Row>;
             }}
           />

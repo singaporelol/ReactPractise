@@ -25,8 +25,8 @@ const menuList = [
         key:'/context'
     },
     {
-        title:'父组件调用子组件方法',
-        key:'/invokechild'
+        title:'父组件调用子组件方法(refs)',
+        key:'/parentcallchildmethod'
     },
 
 

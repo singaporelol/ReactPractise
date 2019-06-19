@@ -14,12 +14,9 @@ const {
 } = Layout;
 const SubMenu = Menu.SubMenu;
 export default class Auth extends React.Component {
-  constructor(props, context) {
-    console.log(context);
+  constructor(props) {
     super(props)
     this.state = {
-        // UserMenu:JSON.parse(localStorage.getItem('USER_MENU'))
-        // UserMenu:context.MenuList
     }
     
   }
@@ -28,6 +25,7 @@ export default class Auth extends React.Component {
     this.setState({ collapsed });
   }
   GenerateUserMenu=(UserMenu)=>{
+    console.log(UserMenu);
     return UserMenu.map((item,key)=>{
       if(item.ChildMenu.length>0){
        return (<SubMenu
@@ -48,7 +46,7 @@ export default class Auth extends React.Component {
     // console.log((this.state.UserMenu))
       return <Consumer>
         {context=>{
-          console.log(context);
+          console.log(this.props)
          return (<Layout style={{ minHeight: '100vh' }}>
           <Sider
             collapsible
@@ -80,9 +78,9 @@ export default class Auth extends React.Component {
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 560 }}>
             <Switch>
-              <Route exact path={`${this.props.match.path}`}><Redirect to={`${this.props.match.path}/userInfo`}/></Route>
+              <Route exact path={`${this.props.match.path}`}><Redirect to={`${this.props.match.path}/user`}/></Route>
               <Route path={`${this.props.match.path}/menu`} component={MenuInfo}></Route>
-              <Route path={`${this.props.match.path}/userInfo`} component={UserInfo}></Route>
+              <Route path={`${this.props.match.path}/user`} component={UserInfo}></Route>
               <Route path={`${this.props.match.path}/role`} component={RoleInfo}></Route>
               <Route path={`${this.props.match.path}/action`} component={Action}></Route>
               <Route path={`${this.props.match.path}/userrole`} component={UserRole}></Route>
