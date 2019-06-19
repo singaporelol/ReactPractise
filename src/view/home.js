@@ -11,6 +11,7 @@ import Count from "../components/laoma/count";
 import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
+import InvokeChild from "../components/laoma/invokechild";
 import NewCount from "../components/laoma/react-redux/NewCount";
 import Auth from "../pages/auth/auth"
 
@@ -90,6 +91,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/rich`} component={Count} />
                     <Route path={`${match.path}/parent`} component={Parent} />
                     <Route path={`${match.path}/context`} component={Context} />
+                    <Route path={`${match.path}/invokechild`} component={InvokeChild} />
                     <Route
                       path={`${match.path}/newcount`}
                       component={NewCount}

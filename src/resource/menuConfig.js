@@ -24,6 +24,10 @@ const menuList = [
         title:'context demo',
         key:'/context'
     },
+    {
+        title:'父组件调用子组件方法',
+        key:'/invokechild'
+    },
 
 
 ];
