@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import FormDemo from './components/FormDemo';
+import Form from './components/Form';
 import './antd.less'
 export default class antd extends Component {
   render() {
@@ -24,11 +24,11 @@ export default class antd extends Component {
         </Col>
         <Col xs={18} style={{ height: '100vh' }}>
           <Switch>
-            <Route path={`${this.props.match.path}/formdemo`} component={FormDemo} />
-            {/* <Route
-                      path={`${match.path}/userlist`}
-                      component={Userlist}
-                    /> */}
+            {/* <Route path={`${this.props.match.path}/formdemo`} component={FormDemo} /> */}
+            <Route path={`${this.props.match.path}/formdemo`} render={(props)=>{
+              return (<div className="form-content"><Form {...props}/></div>)
+            }} />
+            
           </Switch>
         </Col>
       </Row>

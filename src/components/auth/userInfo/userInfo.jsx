@@ -85,7 +85,12 @@ export default class UserInfo extends React.Component {
           editVisible:false
         })}
       >
-       <EditModal {...this.state}></EditModal>
+       <EditModal 
+        {...this.state}
+        wrappedComponentRef={form=>{
+          this.formRef=form
+        }}
+       ></EditModal>
       </Modal>
       <Table 
         dataSource={this.state.dataSource} 
