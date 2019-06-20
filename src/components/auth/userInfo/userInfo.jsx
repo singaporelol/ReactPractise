@@ -55,8 +55,12 @@ export default class UserInfo extends React.Component {
       addVisible:true
     })
   }
-  handlerAddOk=()=>{
-
+  handlerEditOk=()=>{
+    this.formRef.props.form.validateFields((err,values)=>{
+      if(!err){
+        console.log(values);
+      }
+    });
   }
   setTitle=()=>{
     return <Button type="primary" onClick={()=>{this.addUser()}}>新增</Button>
@@ -84,8 +88,12 @@ export default class UserInfo extends React.Component {
           editVisible:false
         })}
       >
-       <EditModal {...this.state}></EditModal>
-       {/* <HorizontalLoginForm></HorizontalLoginForm> */}
+       <EditModal 
+        {...this.state}
+        wrappedComponentRef={form=>{
+          this.formRef=form
+        }}
+       ></EditModal>
       </Modal>
       <Table 
         dataSource={this.state.dataSource} 

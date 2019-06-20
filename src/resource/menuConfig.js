@@ -28,6 +28,7 @@ const menuList = [
         title:'父组件调用子组件方法(refs)',
         key:'/parentcallchildmethod'
     },
+    
 
 
 ];

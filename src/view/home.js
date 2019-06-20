@@ -12,8 +12,10 @@ import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
 import ParentCallChildMethod from "../components/laoma/parentcallchildmethod";
+
 import NewCount from "../components/laoma/react-redux/NewCount";
 import Auth from "../pages/auth/auth"
+import Antd from "../pages/antd/antd"
 
 export default class Home extends React.Component {
   constructor() {
@@ -52,6 +54,9 @@ export default class Home extends React.Component {
           <LinkContainer to={`${match.path}/product`}>
             <Nav.Link eventKey="2">产品</Nav.Link>
           </LinkContainer>
+          <LinkContainer to={`${match.path}/antd`}>
+            <Nav.Link eventKey="5">antd</Nav.Link>
+          </LinkContainer>
           <LinkContainer to={`${match.path}/auth`}>
             <Nav.Link eventKey="3">后台权限管理系统</Nav.Link>
           </LinkContainer>
@@ -61,6 +66,7 @@ export default class Home extends React.Component {
         </Nav>
         <Switch>
           <Route path={`${match.path}/auth`} component={Auth}/>
+          <Route path={`${match.path}/antd`} component={Antd}/>
           <Route
             path={`${match.path}`}
             render={props => {
@@ -105,6 +111,7 @@ export default class Home extends React.Component {
               </Row>;
             }}
           />
+          
         </Switch>
 
         
