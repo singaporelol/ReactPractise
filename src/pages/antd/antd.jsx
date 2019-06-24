@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import { Row, Col } from 'antd';
+import { Row, Col,Button } from 'antd';
 import Form from './components/Form';
 import OnBlurDemo from './components/onblurdemo';
 import './antd.less'
@@ -31,9 +31,13 @@ export default class antd extends Component {
               return (<div className="form-content"><Form {...props}/></div>)
             }} />
             <Route path={`${this.props.match.path}/onblurdemo`} render={(props)=>{
-              return (<div className="form-content"><OnBlurDemo {...props} wrappedComponentRef={(form)=>{
-                this.formRef=form
-              }}/></div>)
+              return (
+              <div className="form-content">
+                <OnBlurDemo {...props} wrappedComponentRef={(form)=>{
+                  this.formRef=form
+                }}/><br></br>
+                <Button onClick={()=>{console.log(this.formRef.props.form.getFieldsValue())}}>click</Button>
+              </div>)
             }} />
             
           </Switch>
