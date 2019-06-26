@@ -56,11 +56,13 @@ export default class UserInfo extends React.Component {
     })
   }
   handlerEditOk=()=>{
-    this.formRef.props.form.validateFields((err,values)=>{
-      if(!err){
-        console.log(values);
-      }
-    });
+    let err=this.formRef.props.form.getFieldsError()
+    console.log(err)
+    // this.formRef.props.form.validateFields((err,values)=>{
+    //   if(!err){
+    //     console.log(values);
+    //   }
+    // });
   }
   setTitle=()=>{
     return <Button type="primary" onClick={()=>{this.addUser()}}>新增</Button>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Input, Form} from 'antd'
+import Axios from 'axios';
 
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
@@ -47,8 +48,17 @@ function hasErrors(fieldsError) {
           })(
             <Input placeholder="请输入用户名..." onBlur={()=>{
               //发送ajax请求到后台。返回结果进行操作。
-              setFields({
-                "UserName":{Error:[new Error('hahahah')]}
+              Axios.get("/api/GetUserinfoByName",{
+                params:{
+                  UserName:"admin2"
+                }
+              }).then((res)=>{
+                if(res.data.data.exist==true){
+                  console.log(res.data.data.exist);
+                setFields({
+                  "UserName":{value:"12",errors:[new Error('水电费')]}
+                })
+                }
               })
             }}/>,
           )}
