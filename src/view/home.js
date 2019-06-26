@@ -12,6 +12,7 @@ import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
 import ParentCallChildMethod from "../components/laoma/parentcallchildmethod";
+import Reactdemo from "../components/laoma/reactdemo";
 
 import NewCount from "../components/laoma/react-redux/NewCount";
 import Auth from "../pages/auth/auth"
@@ -98,6 +99,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/parent`} component={Parent} />
                     <Route path={`${match.path}/context`} component={Context} />
                     <Route path={`${match.path}/parentcallchildmethod`} component={ParentCallChildMethod} />
+                    <Route path={`${match.path}/reactdemo`} component={Reactdemo} />
                     <Route
                       path={`${match.path}/newcount`}
                       component={NewCount}
