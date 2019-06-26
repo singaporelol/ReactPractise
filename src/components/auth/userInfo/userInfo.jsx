@@ -7,6 +7,7 @@ import EditModal from './editModal';
 export default class UserInfo extends React.Component {
   constructor() {
     super()
+    this.child=React.createRef();
     this.state = {
       editVisible:false,
       addVisible:false
@@ -56,13 +57,17 @@ export default class UserInfo extends React.Component {
     })
   }
   handlerEditOk=()=>{
-    let err=this.formRef.props.form.getFieldsError()
-    console.log(err)
-    // this.formRef.props.form.validateFields((err,values)=>{
-    //   if(!err){
-    //     console.log(values);
-    //   }
-    // });
+    
++    this.child.current.hello();
+    let erronBlur=this.formRef.props.form.getFieldError("UserName");
+    
+    this.formRef.props.form.validateFields((err,val)=>{
+      if(!err &&!erronBlur){
+        let editForm=this.formRef.props.form.getFieldsValue();
+        console.log(editForm);
+      }
+    })
+    
   }
   setTitle=()=>{
     return <Button type="primary" onClick={()=>{this.addUser()}}>新增</Button>
@@ -91,6 +96,7 @@ export default class UserInfo extends React.Component {
         })}
       >
        <EditModal 
+       ref={this.child}
         {...this.state}
         wrappedComponentRef={form=>{
           this.formRef=form
