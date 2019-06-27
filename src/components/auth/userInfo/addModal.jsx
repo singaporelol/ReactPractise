@@ -1,18 +1,15 @@
-import React from "react";
+import React, { Component } from 'react'
 import { Input, Form } from "antd";
-import axios from "axios";
-
-class EditModal extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+import axios from 'axios';
+class addModal extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    }
   }
-  componentDidMount() {
-    this.props.form.setFieldsValue({
-      UserName: this.props.UserName,
-      Id:this.props.Id
-    });
-  }
+  
   validUserName = () => {
     const { setFields, getFieldValue } = this.props.form;
     let name = getFieldValue("UserName");
@@ -34,30 +31,29 @@ class EditModal extends React.Component {
         }
       });
   };
-  
   render() {
     const { getFieldDecorator } = this.props.form;
-    // console.log(this.props.form);
+    
     return (
       <Form>
         <Form.Item label="用户名" colon hasFeedback={true}>
-          {getFieldDecorator("UserName", {
+        {getFieldDecorator("UserName", {
             rules: [
-              // {validator: (rule,value,callback)=>{
-              //   // console.log('validator')
-              //   //自定义规则
-              //   console.log(value)
-
-              // },},
-
               { required: true, message: "用户名不能为空" },
-              { min: 5, message: "必须大于5个字符" }
+              { min: 3, message: "必须大于3个字符" }
             ]
           })(<Input placeholder="请输入用户名..." onBlur={() => this.validUserName()} />)}
         </Form.Item>
+        <Form.Item label="密码" colon hasFeedback={true}>
+        {getFieldDecorator("Password", {
+            rules: [
+              { required: true, message: "密码不能为空" },
+              { min: 3, message: "必须大于3个字符" }
+            ]
+          })(<Input placeholder="请输入密码"  />)}
+        </Form.Item>
       </Form>
-    );
+    )
   }
 }
-
-export default Form.create({ name: "userinfoEditModal" })(EditModal);
+export default Form.create({ name: "userinfoaddModal" })(addModal);
