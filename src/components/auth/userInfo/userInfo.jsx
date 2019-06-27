@@ -49,7 +49,11 @@ export default class UserInfo extends React.Component {
                       }}
                     />
                     <Divider type="vertical" />
-                    <Icon type="delete" />
+                    <Icon type="delete" onClick={()=>{
+                      console.log(this)
+                      this.handlerDeleteOk(record)
+                      
+                    }}/>
                   </div>
                 );
               }
@@ -61,6 +65,22 @@ export default class UserInfo extends React.Component {
         console.log(err);
       });
   };
+  handlerDeleteOk=(record)=>{
+    let Id=[record.Id];
+    console.log(this);
+    Modal.confirm({
+      title:"Do you want to delete these items?",
+      content:"press delete to delete",
+      okText:"删除",
+      onOk:()=>{
+       return axios.delete('/api/deleteUserFormByIds',{params:{Id:JSON.stringify(Id)}})
+        .then(res=>{
+          res.data.code==1? message.success("删除成功"):message.error("删除失败")
+          this.handleGetUserList();
+        })
+      }
+    })
+  }
   addUser = () => {
     this.setState({
       addVisible: true
@@ -113,9 +133,6 @@ export default class UserInfo extends React.Component {
         })
       }
     })
-  }
-  handlerDeleteOk=()=>{
-
   }
   setTitle = () => {
     return (

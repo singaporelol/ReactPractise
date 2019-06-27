@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Input, Form} from 'antd'
+import {Input, Form, Modal,Button} from 'antd'
 import Axios from 'axios';
 
 function hasErrors(fieldsError) {
@@ -63,6 +63,14 @@ function hasErrors(fieldsError) {
             }}/>,
           )}
         </Form.Item>
+        <Button onClick={()=>{
+          Modal.confirm({
+            title: 'Confirm',
+            content: 'Bla bla ...',
+            okText: '确认',
+            cancelText: '取消',
+          })
+        }}>弹出confirm对话框</Button>
       </Form>
     )
   }
