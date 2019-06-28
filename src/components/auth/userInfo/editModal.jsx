@@ -7,10 +7,11 @@ class EditModal extends React.Component {
     super();
     this.state = {};
   }
+  
   componentDidMount() {
     this.props.form.setFieldsValue({
       UserName: this.props.UserName,
-      Id:this.props.Id
+      // Id:this.props.Id
     });
   }
   validUserName = () => {
@@ -37,6 +38,7 @@ class EditModal extends React.Component {
   
   render() {
     const { getFieldDecorator } = this.props.form;
+    
     // console.log(this.props.form);
     return (
       <Form>

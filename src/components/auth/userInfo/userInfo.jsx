@@ -181,10 +181,6 @@ export default class UserInfo extends React.Component {
             {...this.state}
             wrappedComponentRef={form => {
               this.formRef = form;
-              // form.props.form.setFieldsValue({
-              //   UserName: this.state.UserName,
-              //   Id:this.state.Id
-              // })
             }}
           />
         </Modal>
