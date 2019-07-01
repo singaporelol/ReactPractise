@@ -9,7 +9,9 @@ export default class UserInfo extends React.Component {
     this.child = React.createRef();
     this.state = {
       editVisible: false,
-      addVisible: false
+      addVisible: false,
+      selectedRowKeys:[],
+      IsHideMultiDel:true
     };
   }
   componentDidMount() {
@@ -50,7 +52,6 @@ export default class UserInfo extends React.Component {
                     />
                     <Divider type="vertical" />
                     <Icon type="delete" onClick={()=>{
-                      console.log(this)
                       this.handlerDeleteOk(record)
                       
                     }}/>
@@ -134,9 +135,21 @@ export default class UserInfo extends React.Component {
       }
     })
   }
+  handlerRowSelection=(selectedRowKeys,selectedRows)=>{
+    this.setState(state=>{
+      return{
+        selectedRowKeys: selectedRowKeys,
+        IsHideMultiDel:false
+      }
+    },()=>{
+      console.log(this.state.selectedRowKeys)
+    })
+    message.success('行被选中了！')
+  }
   setTitle = () => {
     return (
-      <Button
+      <div className="userinfo-head-bar">
+        <Button
         type="primary"
         onClick={() => {
           this.addUser();
@@ -144,6 +157,11 @@ export default class UserInfo extends React.Component {
       >
         新增
       </Button>
+      <Divider type="vertical"></Divider>
+      <Button type="primary" disabled={this.state.IsHideMultiDel} onClick={()=>{
+        console.log('删除button被点击了')
+      }}>删除</Button>
+      </div>
     );
   };
   render() {
@@ -189,9 +207,15 @@ export default class UserInfo extends React.Component {
           columns={this.state.columns}
           title={() => this.setTitle()}
           rowKey="Id"
-          rowSelection={{
-            type: 'checkbox'
-          }}
+          // rowSelection={{
+          //   type: 'checkbox',
+          // }}
+          rowSelection={
+           {
+            type: 'checkbox',
+            onChange:this.handlerRowSelection
+           }
+          }
         />
       </div>
     );
