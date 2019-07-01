@@ -135,16 +135,28 @@ export default class UserInfo extends React.Component {
       }
     })
   }
+  handlerDeleteRows=()=>{
+    this.state.selectedRowKeys.length>0 &&
+    Modal.confirm({
+      title:"Do you want to delete these items?",
+      content:"press delete to delete",
+      okText:"删除",
+      onOk:()=>{
+       return axios.delete('/api/deleteUserFormByIds',{params:{Id:JSON.stringify(this.state.selectedRowKeys)}})
+        .then(res=>{
+          res.data.code==1? message.success("删除成功"):message.error("删除失败")
+          this.handleGetUserList();
+        })
+      }
+    })
+  }
   handlerRowSelection=(selectedRowKeys,selectedRows)=>{
-    this.setState(state=>{
-      return{
+    selectedRowKeys.length<=0? this.setState({ IsHideMultiDel: true}):
+    this.setState({
         selectedRowKeys: selectedRowKeys,
         IsHideMultiDel:false
       }
-    },()=>{
-      console.log(this.state.selectedRowKeys)
-    })
-    message.success('行被选中了！')
+    )
   }
   setTitle = () => {
     return (
@@ -158,9 +170,7 @@ export default class UserInfo extends React.Component {
         新增
       </Button>
       <Divider type="vertical"></Divider>
-      <Button type="primary" disabled={this.state.IsHideMultiDel} onClick={()=>{
-        console.log('删除button被点击了')
-      }}>删除</Button>
+      <Button type="primary" disabled={this.state.IsHideMultiDel} onClick={()=>this.handlerDeleteRows()}>删除</Button>
       </div>
     );
   };
