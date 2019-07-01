@@ -7,7 +7,7 @@ import {Button} from 'antd'
 import About from "./about";
 import menuList from "./../resource/menuConfig.js";
 import Content from "./auth/content";
-import Count from "../components/laoma/count";
+import Count from "../redux/count";
 import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
@@ -95,7 +95,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/about`} component={About} />
                     <Route path={`${match.path}/product`} component={Product} />
                     <Route path={`${match.path}/content`} component={Content} />
-                    <Route path={`${match.path}/rich`} component={Count} />
+                    <Route path={`${match.path}/redux`} component={Count} />
                     <Route path={`${match.path}/parent`} component={Parent} />
                     <Route path={`${match.path}/context`} component={Context} />
                     <Route path={`${match.path}/parentcallchildmethod`} component={ParentCallChildMethod} />

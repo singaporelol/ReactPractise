@@ -9,8 +9,8 @@ const menuList = [
     },
 
     {
-        title:'计数器',
-        key:'/rich'
+        title:'redux',
+        key:'/redux'
     },
     {
         title:'react-redux计数器',
