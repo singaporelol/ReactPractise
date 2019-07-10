@@ -38,6 +38,7 @@ export default class Count extends React.Component {
   }
   render(){
     return(<div>
+      <h2>一个页面的redux案例，没有拆分reducer和action</h2>
       <p>{this.state.Num}</p>
       <Button onClick={()=>this.AddNum()}>+1</Button>
       <Button onClick={()=>this.MinusNum()}>-1</Button>

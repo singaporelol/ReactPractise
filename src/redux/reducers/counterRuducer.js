@@ -1,10 +1,8 @@
 //创建reducer:
-const counterRucer=function(state={count:1},action){
+const counterRucer=function(state=0,action){
   switch(action.type){
-    case "COUNT_ADD":
-    return {
-      ...state, count:state.count+1
-    }
+    case "NUM_ADD":
+    return state+action.payload
     default:
     return state;
   }

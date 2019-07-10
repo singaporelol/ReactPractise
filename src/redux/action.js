@@ -1,4 +1,6 @@
-export const NumAction = {
-  type: 'COUNT_ADD',
-  payload: {}
+export const NumAction = (num)=>{
+  return{
+    type: 'NUM_ADD',
+    payload: num
+  }
 }

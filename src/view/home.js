@@ -7,14 +7,14 @@ import {Button} from 'antd'
 import About from "./about";
 import menuList from "./../resource/menuConfig.js";
 import Content from "./auth/content";
-import Count from "../redux/count";
+import Count from "../redux/count.jsx";
 import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
 import ParentCallChildMethod from "../components/laoma/parentcallchildmethod";
 import Reactdemo from "../components/laoma/reactdemo";
 
-import NewCount from "../components/laoma/react-redux/NewCount";
+import ReactRedux from "../redux/reactredux";
 import Auth from "../pages/auth/auth"
 import Antd from "../pages/antd/antd"
 
@@ -101,8 +101,8 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/parentcallchildmethod`} component={ParentCallChildMethod} />
                     <Route path={`${match.path}/reactdemo`} component={Reactdemo} />
                     <Route
-                      path={`${match.path}/newcount`}
-                      component={NewCount}
+                      path={`${match.path}/reactredux`}
+                      component={ReactRedux}
                     />
                     <Route
                       path={`${match.path}/userlist`}
