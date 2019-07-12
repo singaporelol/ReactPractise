@@ -4,7 +4,7 @@ const menuList = [
         key:'/content'
     },
     {
-        title:'用户列表',
+        title:'用户列表(redux-thunk)',
         key:'/userlist',
     },
 
