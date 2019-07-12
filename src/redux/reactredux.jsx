@@ -12,7 +12,7 @@ export default class reactredux extends Component {
   Add=()=>{
     store.dispatch(NumAction(1))
     this.setState({
-      num:store.getState("counterRucer")
+      num:store.getState().counterRucer
     })
   }
   render() {

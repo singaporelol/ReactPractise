@@ -8,12 +8,12 @@ import About from "./about";
 import menuList from "./../resource/menuConfig.js";
 import Content from "./auth/content";
 import Count from "../redux/count.jsx";
-import Userlist from "../components/laoma/userlist";
+// import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
 import ParentCallChildMethod from "../components/laoma/parentcallchildmethod";
 import Reactdemo from "../components/laoma/reactdemo";
-
+import Userlist from "../redux/userlist";
 import ReactRedux from "../redux/reactredux";
 import Auth from "../pages/auth/auth"
 import Antd from "../pages/antd/antd"
