@@ -1,6 +1,22 @@
-export const NumAction = (num)=>{
-  return{
-    type: 'NUM_ADD',
-    payload: num
+export const Action={
+  NUM_ADD:"NUM_ADD",
+  NUM_MINUS:"NUM_MINUS"
+}
+
+export const ActonCreator={
+  AddNumber:(payload)=>{
+    return{
+      type:Action.NUM_ADD,
+      payload:payload
+    }
+  },
+  MinusNumber:(payload)=>{
+    return{
+      type:Action.NUM_MINUS,
+      payload:payload
+    }
   }
 }
+
+
+
