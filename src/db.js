@@ -1,4 +1,4 @@
-{
+export default {
   "userlist": [
     {
       "id": "100002",

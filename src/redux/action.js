@@ -1,3 +1,4 @@
+import db from './../db.js'
 export const Action={
   NUM_ADD:"NUM_ADD",
   NUM_MINUS:"NUM_MINUS"
@@ -33,6 +34,20 @@ export const UserlistActionCreator={
     return{
       type:UserlistAction.REMOVE_USER,
       payload
+    }
+  },
+  AsyLoadUser:(payload,_this)=>{
+    
+    return (dispatch,getState)=>{
+      //return axios.delete()
+      payload=db.userlist
+      dispatch(UserlistActionCreator.LoadUser(payload))
+    }
+    
+  },
+  AsyRemoveUser:(payload)=>{
+    return (dispatch,getState)=>{
+      dispatch(UserlistActionCreator.RemoveUser(payload))
     }
   }
   

@@ -4,9 +4,9 @@ import {UserlistAction} from '../action'
 export default (state = [], action) => {
   switch (action.type) {
     case UserlistAction.LOAD_USER:
-      return { state, ...action.payload }
+      return action.payload
     case UserlistAction.REMOVE_USER:
-      return state.filter((item)=>item.Id!==action.payload)
+      return state.filter(item=>item.id!==action.payload)
     default:
       return state
   }
