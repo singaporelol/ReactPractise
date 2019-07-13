@@ -7,14 +7,18 @@ import {Button} from 'antd'
 import About from "./about";
 import menuList from "./../resource/menuConfig.js";
 import Content from "./auth/content";
-import Count from "../redux/count.jsx";
-// import Userlist from "../components/laoma/userlist";
 import Parent from "../components/laoma/parent";
 import Context from "../components/laoma/context";
 import ParentCallChildMethod from "../components/laoma/parentcallchildmethod";
 import Reactdemo from "../components/laoma/reactdemo";
-import Userlist from "../redux/userlist";
+//使用redux来进行计数（没封装action）
+import Count from "../redux/count.jsx";
+//使用redux来进行计数（封装）
 import ReactRedux from "../redux/reactredux";
+//使用redux-thunk异步进行（封装）
+import Userlist from "../redux/userlist";
+//使用react-redux来做计数器（封装）
+import ReactReduxCalculator from "../redux/reactreduxcalculator";
 import Auth from "../pages/auth/auth"
 import Antd from "../pages/antd/antd"
 
@@ -96,6 +100,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/product`} component={Product} />
                     <Route path={`${match.path}/content`} component={Content} />
                     <Route path={`${match.path}/redux`} component={Count} />
+                    <Route path={`${match.path}/reactreduxCalculator`} component={ReactReduxCalculator} />
                     <Route path={`${match.path}/parent`} component={Parent} />
                     <Route path={`${match.path}/context`} component={Context} />
                     <Route path={`${match.path}/parentcallchildmethod`} component={ParentCallChildMethod} />

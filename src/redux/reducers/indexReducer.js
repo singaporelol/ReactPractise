@@ -1,9 +1,9 @@
-import counterRucer from './counterRuducer'
+import counterReducer from './counterRuducer'
 import postReducer from './postReducer'
 import userlistReducer from './userlistReducer'
 import {combineReducers} from 'redux'
 const rootreducer= combineReducers({
-  counterRucer,
+  counterReducer,
   postReducer,
   userlistReducer
 })

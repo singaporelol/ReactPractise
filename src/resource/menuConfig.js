@@ -13,8 +13,12 @@ const menuList = [
         key:'/redux'
     },
     {
-        title:'react-redux拆分',
+        title:'redux拆分',
         key:'/reactredux'
+    },
+    {
+        title:'react-redux计数器',
+        key:'/reactreduxCalculator'
     },
     {
         title:'父子组件传值',
