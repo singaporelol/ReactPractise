@@ -36,8 +36,7 @@ export const UserlistActionCreator={
       payload
     }
   },
-  AsyLoadUser:(payload,_this)=>{
-    
+  AsyLoadUser:(payload)=>{
     return (dispatch,getState)=>{
       //return axios.delete()
       payload=db.userlist

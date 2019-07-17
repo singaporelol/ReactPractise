@@ -5,7 +5,7 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom'
-import Login,{loginClick} from './view/login';
+import Login from './view/login';
 import Empty from './view/empty';
 import Home from './view/home';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -64,6 +64,9 @@ export default class App extends Component {
               }
 
             }}></Route>
+            <Route path="/demo" render={props=>{
+              return <Provider value={this.state.userAllAction}><Home {...props}/></Provider>
+            }}/>
             <Route component={Empty}></Route>
 
           </Switch>

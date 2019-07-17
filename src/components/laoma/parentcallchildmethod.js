@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Child,{getAlert} from './child'
+import Child from './child'
 import {Button} from 'antd'
 
 export default class parentcallchildmethod extends Component {

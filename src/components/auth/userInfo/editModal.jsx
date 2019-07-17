@@ -25,7 +25,7 @@ class EditModal extends React.Component {
       })
       .then(res => {
         console.log(res.data.data.exist);
-        if (res.data.data.exist == true) {
+        if (res.data.data.exist === true) {
          return setFields({
             UserName: {
               value: name,

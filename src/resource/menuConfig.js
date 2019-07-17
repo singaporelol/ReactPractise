@@ -7,6 +7,10 @@ const menuList = [
         title:'用户列表(redux-thunk)',
         key:'/userlist',
     },
+    {
+        title:'用户列表(react-redux)',
+        key:'/reactreduxuserlist',
+    },
 
     {
         title:'redux',

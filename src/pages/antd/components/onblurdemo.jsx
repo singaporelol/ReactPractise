@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import {Input, Form, Modal,Button} from 'antd'
 import Axios from 'axios';
 
-function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
 
  class OnBlurDemo extends Component {
   
@@ -53,7 +50,7 @@ function hasErrors(fieldsError) {
                   UserName:"admin2"
                 }
               }).then((res)=>{
-                if(res.data.data.exist==true){
+                if(res.data.data.exist===true){
                   console.log(res.data.data.exist);
                 setFields({
                   "UserName":{value:"12",errors:[new Error('水电费')]}

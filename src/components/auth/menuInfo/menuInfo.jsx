@@ -1,6 +1,5 @@
 import React from "react";
-import axios from "axios";
-import { Table, Button, Divider, Icon, Modal, Tree, Row, Col } from "antd";
+import { Button, Tree, Row, Col } from "antd";
 const { TreeNode } = Tree;
 
 export default class MenuInfo extends React.Component {

@@ -20,7 +20,7 @@ export default class userlist extends Component {
   }
   componentDidMount(){
     // store.dispatch(UserlistActionCreator.AsyLoadUser("",this))
-      store.dispatch(UserlistActionCreator.AsyLoadUser())
+     store.dispatch(UserlistActionCreator.AsyLoadUser())
     //  this.setState({
     //    userlist:store.getState().userlistReducer
     //  })

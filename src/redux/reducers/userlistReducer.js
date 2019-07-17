@@ -6,7 +6,11 @@ export default (state = [], action) => {
     case UserlistAction.LOAD_USER:
       return action.payload
     case UserlistAction.REMOVE_USER:
-      return state.filter(item=>item.id!==action.payload)
+      {
+        return state.filter(item=>{
+          return item.id!==action.payload
+        })
+      }
     default:
       return state
   }

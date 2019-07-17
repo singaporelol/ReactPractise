@@ -76,7 +76,7 @@ export default class UserInfo extends React.Component {
       onOk:()=>{
        return axios.delete('/api/deleteUserFormByIds',{params:{Id:JSON.stringify(Id)}})
         .then(res=>{
-          res.data.code==1? message.success("删除成功"):message.error("删除失败")
+          res.data.code===1? message.success("删除成功"):message.error("删除失败")
           this.handleGetUserList();
         })
       }
@@ -144,7 +144,7 @@ export default class UserInfo extends React.Component {
       onOk:()=>{
        return axios.delete('/api/deleteUserFormByIds',{params:{Id:JSON.stringify(this.state.selectedRowKeys)}})
         .then(res=>{
-          res.data.code==1? message.success("删除成功"):message.error("删除失败")
+          res.data.code===1? message.success("删除成功"):message.error("删除失败")
           this.handleGetUserList();
         })
       }

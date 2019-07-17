@@ -19,6 +19,8 @@ import ReactRedux from "../redux/reactredux";
 import Userlist from "../redux/userlist";
 //使用react-redux来做计数器（封装）
 import ReactReduxCalculator from "../redux/reactreduxcalculator";
+//使用react-redux来做userlist增删改查（封装）
+import ReactReduxUserlist from "../redux/reactreduxuserlist"
 import Auth from "../pages/auth/auth"
 import Antd from "../pages/antd/antd"
 
@@ -99,6 +101,7 @@ export default class Home extends React.Component {
                     <Route path={`${match.path}/about`} component={About} />
                     <Route path={`${match.path}/product`} component={Product} />
                     <Route path={`${match.path}/content`} component={Content} />
+                    <Route path={`${match.path}/reactreduxuserlist`} component={ReactReduxUserlist} />
                     <Route path={`${match.path}/redux`} component={Count} />
                     <Route path={`${match.path}/reactreduxCalculator`} component={ReactReduxCalculator} />
                     <Route path={`${match.path}/parent`} component={Parent} />
