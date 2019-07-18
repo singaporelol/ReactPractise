@@ -20,7 +20,8 @@ export const ActonCreator={
 }
 export const UserlistAction={
   LOAD_USER:"LOAD_USER",
-  REMOVE_USER:"REMOVE_USER"
+  REMOVE_USER:"REMOVE_USER",
+  UPDATE_USER:"UPDATE_USER"
 }
 export const UserlistActionCreator={
   
@@ -33,6 +34,12 @@ export const UserlistActionCreator={
   RemoveUser(payload){
     return{
       type:UserlistAction.REMOVE_USER,
+      payload
+    }
+  },
+  UpdateUser(payload){
+    return{
+      type:UserlistAction.UPDATE_USER,
       payload
     }
   },

@@ -30,28 +30,7 @@ export class reactreduxuserlist extends Component {
         </thead>
         <tbody>
           {this.props.userlist.map((item,index)=>{
-            return <UserRow key={index} item={item} remove={this.props.remove} edit={this.props.edit}></UserRow>
-          //   return<tr>
-          //   <td>{item.id}</td>
-          //   <td>{item.UserName}</td>
-          //   <td>{item.Address}</td>
-          //   <td>{item.Phone}</td>
-          //   <td>{item.Del?"是":"否"}</td>
-          //   <td>{item.Remark}</td>
-          //   <td>
-          //     <Button onClick={()=>{
-          //       this.setState({
-          //         isEditable:true
-          //       })
-          //       this.props.edit(item.id)
-          //       }}>修改</Button>
-          //     &nbsp;
-          //     <Button onClick={()=>{
-          //       this.props.remove(item.id)
-          //     }}>删除</Button>
-          //   </td>
-          // </tr>
-          })}
+            return <UserRow key={item.id} item={item} remove={this.props.remove} update={this.props.update}></UserRow>          })}
         </tbody>
       </Table>
       </div>
@@ -68,8 +47,8 @@ const mapDispatchToProps = (dispatch)=>({
   LoadUser:()=>{
     dispatch(UserlistActionCreator.AsyLoadUser())
   },
-  edit:(id)=>{
-    console.log(id)
+  update:(item)=>{
+    dispatch(UserlistActionCreator.UpdateUser(item))
   },
   remove:(id)=>{
     console.log(id)

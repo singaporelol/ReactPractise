@@ -11,6 +11,12 @@ export default (state = [], action) => {
           return item.id!==action.payload
         })
       }
+    case UserlistAction.UPDATE_USER:
+      {
+        let index=state.findIndex(item=>item.id===action.payload.id)
+        state.splice(index,1,action.payload)
+        return state;
+      }
     default:
       return state
   }
